@@ -73,6 +73,8 @@
   operate in _legacy_ mode (see above). In this case it also doesn't depend on the 
   `mcrypt` extension anymore.
 
+- `Service` does not silence exceptions anymore if they arise from using an unknown socket class.
+
 ### Deprecated
 
 - Short rendering instructions have now been officially deprecated and trigger a
@@ -101,6 +103,7 @@
   | `Model::respondsTo()` | use `Model::hasFinder()` instead |
   | `Validator::respondsTo()` | use `Validator::has()` instead |
   | `*::respondsTo()` | use `is_callable()` instead |
+  | `*::_init()` | use constructor instead |
 
 - Changing the default cipher and/or mode for the `Encrypt` strategy has been 
   deprecated and will cause the strategy to switch into _legacy_ mode. In legacy
