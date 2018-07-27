@@ -67,7 +67,7 @@ abstract class Helper extends \lithium\core\Object {
 	];
 
 	/**
-	 * Constructor.
+	 * Constructor. Imports local string definitions into rendering context.
 	 *
 	 * @param array $config Configuration options.
 	 * @return void
@@ -75,15 +75,6 @@ abstract class Helper extends \lithium\core\Object {
 	public function __construct(array $config = []) {
 		$defaults = ['handlers' => [], 'context' => null];
 		parent::__construct($config + $defaults);
-	}
-
-	/**
-	 * Imports local string definitions into rendering context.
-	 *
-	 * @return void
-	 */
-	protected function _init() {
-		parent::_init();
 
 		if (!$this->_context) {
 			return;

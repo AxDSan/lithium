@@ -160,8 +160,24 @@ abstract class Renderer extends \lithium\core\Object {
 	abstract public function render($template, $data = [], array $options = []);
 
 	/**
-	 * Constructor.
+	 * Constructor. Sets the default output handlers for string template inputs.
 	 *
+	 * The default handlers available are:
+	 * - `url`: Allows generating escaped and routed URLs using `Router::match()`. Note that
+	 *          all falsey values, which includes an empty array, will result in `'/'` being
+	 *          returned. For empty arrays this behavior is slightly different from using
+	 *          `Router::match()` directly.
+	 * - `path`: Generates an asset path.
+	 * - `options`: Converts a set of parameters to HTML attributes into a string.
+	 * - `title`: Returns the escaped title.
+	 * - `value`: Returns an escaped value.
+	 * - `scripts`: Returns a markup string of styles from context.
+	 * - `styles`: Returns a markup string of scripts from context.
+	 * - `head`
+	 *
+	 * @see lithium\net\http\Router::match()
+	 * @see lithium\net\http\Media::asset()
+	 * @see lithium\template\Helper::_attributes()
 	 * @param array $config Available configuration options are:
 	 *        - `view`: The `View` object associated with this renderer.
 	 *        - `strings`: String templates used by helpers.
@@ -186,31 +202,6 @@ abstract class Renderer extends \lithium\core\Object {
 			]
 		];
 		parent::__construct((array) $config + $defaults);
-	}
-
-	/**
-	 * Sets the default output handlers for string template inputs.
-	 *
-	 * The default handlers available are:
-	 * - `url`: Allows generating escaped and routed URLs using `Router::match()`. Note that
-	 *          all falsey values, which includes an empty array, will result in `'/'` being
-	 *          returned. For empty arrays this behavior is slightly different from using
-	 *          `Router::match()` directly.
-	 * - `path`: Generates an asset path.
-	 * - `options`: Converts a set of parameters to HTML attributes into a string.
-	 * - `title`: Returns the escaped title.
-	 * - `value`: Returns an escaped value.
-	 * - `scripts`: Returns a markup string of styles from context.
-	 * - `styles`: Returns a markup string of scripts from context.
-	 * - `head`
-	 *
-	 * @see lithium\net\http\Router::match()
-	 * @see lithium\net\http\Media::asset()
-	 * @see lithium\template\Helper::_attributes()
-	 * @return void
-	 */
-	protected function _init() {
-		parent::_init();
 
 		$req =& $this->_request;
 		$ctx =& $this->_context;

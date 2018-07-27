@@ -297,15 +297,6 @@ class Form extends \lithium\core\Object {
 		$config['validators'] = array_filter($config['validators'] + compact('password'));
 
 		parent::__construct($config + $defaults);
-	}
-
-	/**
-	 * Initializes values configured in the constructor.
-	 *
-	 * @return void
-	 */
-	protected function _init() {
-		parent::_init();
 
 		foreach ($this->_fields as $key => $val) {
 			if (is_int($key)) {
