@@ -59,7 +59,7 @@ class Php extends \lithium\core\Object {
 		}
 		parent::__construct($config + $this->_defaults);
 
-		if (!$this->isStarted() && !$this->_init()) {
+		if (!$this->isStarted() && !$this->_initialize()) {
 			throw new ConfigException('Could not initialize the session.');
 		}
 	}
@@ -69,7 +69,7 @@ class Php extends \lithium\core\Object {
 	 *
 	 * @return boolean
 	 */
-	protected function _init() {
+	protected function _initialize() {
 		$config = $this->_config;
 		unset($config['adapter'], $config['strategies'], $config['filters'], $config['init']);
 
