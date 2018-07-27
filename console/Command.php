@@ -81,7 +81,9 @@ class Command extends \lithium\core\Object {
 	protected $_autoConfig = ['classes' => 'merge'];
 
 	/**
-	 * Constructor.
+	 * Constructor. Populates the `$response` property with a new instance of the
+	 * `Response` class passing it configuration and assigns the values from named
+	 * parameters of the request (if applicable) to properties of the command.
 	 *
 	 * @param array $config Available configuration options are:
 	 *        - `'request'` _object|null_
@@ -92,19 +94,7 @@ class Command extends \lithium\core\Object {
 	public function __construct(array $config = []) {
 		$defaults = ['request' => null, 'response' => [], 'classes' => $this->_classes];
 		parent::__construct($config + $defaults);
-	}
 
-	/**
-	 * Command Initializer.
-	 *
-	 * Populates the `$response` property with a new instance of the `Response` class passing it
-	 * configuration and assigns the values from named parameters of the request (if applicable) to
-	 * properties of the command.
-	 *
-	 * @return void
-	 */
-	protected function _init() {
-		parent::_init();
 		$this->request = $this->_config['request'];
 
 		if (!is_object($this->request) || !$this->request->params) {

@@ -159,13 +159,15 @@ class Collection extends \lithium\core\Object implements \ArrayAccess, \Iterator
 	}
 
 	/**
-	 * Initializes the collection object by merging in collection items and removing redundant
-	 * object properties.
+	 * Constructor. Initializes the collection object by merging in collection items and
+	 * removing redundant object properties.
 	 *
+	 * @param array $config Valid options are:
+	 *        - `'data'`
 	 * @return void
 	 */
-	protected function _init() {
-		parent::_init();
+	public function __construct(array $config = []) {
+		parent::__construct($config);
 		unset($this->_config['data']);
 	}
 
