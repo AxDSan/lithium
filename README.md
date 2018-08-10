@@ -52,7 +52,7 @@ Every component of the li₃ framework stack is replaceable through the
 robust plugin architecture. Swap out the default ORM / ODM implementation
 for [Doctrine 2](https://github.com/mariano/li3_doctrine2/) or [PHP
 ActiveRecord](https://github.com/greut/li3_activerecord). Don't like
-the native template engine? You are free to use [Twig](https://github.com/UnionOfRAD/li3_twig),
+the native template engine? Feel free to use [Twig](https://github.com/UnionOfRAD/li3_twig),
 [Mustache](https://github.com/bruensicke/li3_mustache), or simply roll your own!
 
 If you don't even need to write a full application, build a micro-app in a
