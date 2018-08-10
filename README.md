@@ -52,8 +52,9 @@ Every component of the li₃ framework stack is replaceable through the
 robust plugin architecture. Swap out the default ORM / ODM implementation
 for [Doctrine 2](https://github.com/mariano/li3_doctrine2/) or [PHP
 ActiveRecord](https://github.com/greut/li3_activerecord). Don't like
-the templating? Use [Twig](https://github.com/UnionOfRAD/li3_twig),
-[Mustache](https://github.com/bruensicke/li3_mustache), or roll your own.
+the current templating engine? Lithium means serious business when it comes to flexibility,
+use [Twig](https://github.com/UnionOfRAD/li3_twig), [Mustache](https://github.com/bruensicke/li3_mustache),
+or just roll your own!
 
 If you don't even need to write a full application, build a micro-app in a
 single file using the routing system, without giving up the maintainability of
